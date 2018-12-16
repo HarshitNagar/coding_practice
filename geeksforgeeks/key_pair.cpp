@@ -43,8 +43,21 @@ int main()
         readValues(v, n);
         cin>>x;
         unordered_map<int, int>h = storeinhashmap(v, n);
-        //char ans = checksumisx(h, n);
-
+        unordered_map<int, int>::iterator it;
+        int flag = 0;
+        for(it=h.begin(); it!=h.end(); it++)
+        {
+            if(h.find(x - it->second)!=h.end())
+            {
+                cout<<"Yes";
+                flag = 1;
+                break;
+            }
+        }
+        if(flag==0)
+        {
+            cout<<"No";
+        }
     }
     return 0;
 }
