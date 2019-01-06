@@ -29,7 +29,7 @@ int main()
 	int m=s.length();
 	int cnt=0;
 	cnt = count_subseq(s, str, m, n);
-	cout<<cnt<<endl;
+	cout<<cnt;
 
 	return 0;
 }
