@@ -1,3 +1,10 @@
+/*
+Given a string in the form of character followed
+by its frequency. eg: a2b3 means aabbb.
+and 
+given an integer n. find the character at n th 
+position in the string.
+*/
 #include<iostream>
 #include<string.h>
 using namespace std;

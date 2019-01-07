@@ -1,3 +1,15 @@
+/*
+A social network consists of multiples of a digit
+and the numbers sharing any common multiples.
+Given a number n, then all numbers from 2 to n+1
+are available to form networks. Return the number
+of social networks formed.
+Eg: if n=5, array is <2,3,4,5,6>
+groups are <2,4,6,3> <5> {4, 6 are multiples of 2 
+and 3 shares 6 as the common multiple with 2 so it
+is also a part of 2's group. 5 forms a separate 
+group}
+*/
 #include<iostream>
 
 using namespace std;
