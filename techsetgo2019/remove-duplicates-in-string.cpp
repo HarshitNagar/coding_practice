@@ -1,3 +1,10 @@
+/*
+Write a functions to remove all duplicate 
+characters from the string such that the elements 
+removed (while reading the string from left to 
+right) occurs later.
+*/
+
 #include<iostream>
 #include<string.h>
 #define NO_OF_CHARS 256

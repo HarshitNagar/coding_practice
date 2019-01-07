@@ -1,3 +1,7 @@
+/*
+Given a string in json format. Find the max
+depth of the json string.
+*/
 #include<iostream>
 #include<stack>
 #include<string.h>
