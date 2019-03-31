@@ -2,25 +2,34 @@
 #include<vector>
 using namespace std;
 
-int max(int a, int b) { return (a > b)? a : b; }
+int max(int a, int b) 
+{ 
+	return (a > b)? a : b; 
+}
 
-vector<vector<int>> knapsack(int W, int weight[], int val[], int n)
+vector<vector<int> > knapsack(int W, int weight[], int val[], int n)
 {
     //cout<<"in func";
-    int i, j;
-	vector<vector<int>> k;
+	vector<vector<int> > k;
 	k.resize(n+1, vector<int>(W+1));
 
-	for(i=0; i<=n; i++)
+	for(int i=0; i<=n; i++)
 	{
-		for(j=0; j<=W; j++)
+		for(int j=0; j<=W; j++)
 		{
-			if(i==0 || j==0)
+			if(j==0 || i==0)
 				k[i][j]=0;
-			else if(weight[i-1]<=j)
-				k[i][j]=max(val[i-1]+k[i-1][j-weight[i-1]], k[i-1][j]);
 			else
-				k[i][j]=k[i-1][j];
+			{
+				if(weight[i-1]<=j)
+				{
+					k[i][j]=max(weight[i-1] + k[i-1][j-weight[i-1]], k[i-1][j]);
+				}
+				else
+				{
+					k[i][j]=k[i-1][j];
+				}
+			}
 		}
 	}
 	//cout<<"returninng";
@@ -30,25 +39,32 @@ vector<vector<int>> knapsack(int W, int weight[], int val[], int n)
 
 int main()
 {
-	int n; //number of items
-	cin>>n;
-	int W=0; //knapsack capacity
-	int val[n];
-	int weight[n];
+	int n = 4; //number of items
+	//cout<<"enter the number of items";
+	//cin>>n;
+	//cout<<"enter the weight limit of knapsack";
+	int W = 7; //knapsack weight capacity
+	//cin>>W; 
+	int val[] = {1, 4, 5, 4}; //value of the n items 
+	int weight[] = {1, 3, 4, 5}; //weight of each of n items
 
+	//cout<<"enter the weight and values for each item";
+	/*
 	for(int i=0; i<n; i++)
 	{
-		cin>>weight[i]>>val[i];
-		W+=weight[i]; 	
+		cin>>weight[i]>>val[i]; 	
 	}
-	//cout<<"inputs read"<<endl;
+	*/
 
-	vector<vector<int>> v=knapsack(W, weight, val, n);
-	
-	    for(int j=1; j<=W; j++)
+	vector<vector<int> > v=knapsack(W, weight, val, n);
+	cout<<"printing"<<endl;
+	    for(int i=0; i<=n; i++)
 	    {
-	        cout<<v[n][j]<<" ";
-	        //cout<<"yo";
+	    	for(int j=0; j<=W; j++)
+	    	{
+	    		cout<<v[i][j]<<" ";
+	    	}
+	    	cout<<endl;
 	    }
 	
 
